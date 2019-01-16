@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
     //MARK: Refresh
 
-    func refresh() {
+    @objc func refresh() {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.count += 1
             self.refreshControl.endRefreshing()

@@ -99,7 +99,7 @@ private class GIFAnimatedImageView: UIImageView {
 
     lazy var displayLink: CADisplayLink = {
         let dl = CADisplayLink(target: self, selector: #selector(GIFAnimatedImageView.refreshDisplay))
-        dl.add(to: .main, forMode: .commonModes)
+        dl.add(to: .main, forMode: .common)
         dl.isPaused = true
         return dl
     }()
@@ -222,7 +222,7 @@ public class GIFRefreshControl: UIControl {
         }
     }
 
-    public override var contentMode: UIViewContentMode {
+    public override var contentMode: UIView.ContentMode {
         get {
             return imageView.contentMode
         }
@@ -276,7 +276,7 @@ public class GIFRefreshControl: UIControl {
                 delay: 0,
                 usingSpringWithDamping: animationDamping,
                 initialSpringVelocity: animationVelocity,
-                options: UIViewAnimationOptions.curveLinear,
+                options: .curveLinear,
                 animations: { () -> Void in
 
                     if let contentInset = self.contentInset {
